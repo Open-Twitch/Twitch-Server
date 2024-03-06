@@ -10,10 +10,14 @@ import {
     loadDotenv,
     serveSwaggerJson,
 } from './configs/index.js'
-import { appRoutes } from './routes/index.js'
-import { appLimiter, specs, userlimiter } from './middlewares/index.js'
+import { appRoutes } from './services/routes/index.js'
+import {
+    appLimiter,
+    specs,
+    userlimiter,
+    handleNotFound,
+} from './services/index.js'
 import compression from 'compression'
-import { handleNotFound } from './helpers/index.js'
 
 const app = express()
 
@@ -33,7 +37,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static(appRoot.resolve('/src/public')))
-app.use('/api/v1', appRoutes)
+app.use('/api', appRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 app.get('/swagger.json', serveSwaggerJson)

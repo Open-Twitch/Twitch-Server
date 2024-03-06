@@ -5,7 +5,7 @@ app.listen(port, () => {
     // eslint-disable-next-line no-console
     console.log(
         `Listening: http://localhost:${port} on mode ${
-            process.env.NODE_ENV as string
+            process.env.NODEw_ENV as string
         }`
     )
 })
