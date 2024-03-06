@@ -1,0 +1,12 @@
+{
+    "disks": [
+        {
+            "name": "data",
+            "mountTo": "src/public/uploads"
+        },
+        {
+            "name": "svg",
+            "mountTo": "src/public/uploads/svg"
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "ignore": ["*.test.js", "dist/**"],
+    "execMap": {
+        "ts": "ts-node-esm"
+    }
+}
