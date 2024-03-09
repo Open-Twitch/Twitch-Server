@@ -5,7 +5,7 @@ export interface AdaptRequestType<T extends Request['body']> {
     method: Request['method']
     pathParams: Request['params']
     queryParams: Request['query']
-    body: T
+    body: T | any
     user: any
     files: any
 }

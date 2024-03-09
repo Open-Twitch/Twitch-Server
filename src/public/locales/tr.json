@@ -1,1 +1,6 @@
-{}
+{
+    "emailAlreadyRegistered": "Verilen e-posta zaten kayıtlı.",
+    "userRegisteredSuccessfully": "Kullanıcı başarıyla kaydedildi.",
+    "invalidCredentials": "Geçersiz kullanıcı adı veya şifre.",
+    "loginSuccessful": "Giriş başarılı."
+}

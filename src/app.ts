@@ -7,7 +7,6 @@ import {
     devConfigs,
     i18nConfig,
     errorHandler,
-    loadDotenv,
     serveSwaggerJson,
 } from './configs/index.js'
 import { appRoutes } from './services/routes/index.js'
@@ -20,8 +19,6 @@ import {
 import compression from 'compression'
 
 const app = express()
-
-loadDotenv()
 
 connectDB()
 

@@ -1,1 +1,6 @@
-{}
+{
+    "emailAlreadyRegistered": "The provided email is already registered.",
+    "userRegisteredSuccessfully": "User registered successfully.",
+    "invalidCredentials": "Invalid username or password.",
+    "loginSuccessful": "Login successful."
+}
