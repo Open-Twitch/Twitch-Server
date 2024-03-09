@@ -3,16 +3,16 @@ import swaggerJSDoc from 'swagger-jsdoc'
 const options = {
     swaggerDefinition: {
         info: {
-            title: 'Shop Swagger ',
+            title: 'Open Twitch Swagger ',
             version: '2.0.0',
             description:
-                'This is the swagger documentation for the twitch application.',
+                'This is the swagger documentation for the twitch clone application.',
             license: {
                 name: 'MIT',
                 url: 'https://spdx.org/licenses/MIT.html',
             },
             contact: {
-                name: 'Shop',
+                name: 'Twitch',
                 url: 'https://logrocket.com',
                 email: 'info@email.com',
             },
@@ -20,11 +20,11 @@ const options = {
         servers: [
             {
                 url: 'http://localhost:5000',
-                specs: 'User',
+                specs: 'Client',
             },
         ],
     },
-    apis: ['./src/api/v1/services/routes/*.ts'],
+    apis: ['./src/services/routes/auth.routes.ts'],
 }
 
 export const specs = swaggerJSDoc(options)
