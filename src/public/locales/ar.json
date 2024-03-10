@@ -2,5 +2,6 @@
     "emailAlreadyRegistered": "البريد الإلكتروني المُقدَم مُسجّل بالفعل.",
     "userRegisteredSuccessfully": "تم تسجيل المستخدم بنجاح.",
     "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صالحة.",
-    "loginSuccessful": "تم تسجيل الدخول بنجاح."
+    "loginSuccessful": "تم تسجيل الدخول بنجاح.",
+    "readSingleChannelNotFound": "القناة غير موجودة."
 }

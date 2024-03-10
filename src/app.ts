@@ -8,17 +8,20 @@ import {
     i18nConfig,
     errorHandler,
     serveSwaggerJson,
-} from './configs/index.js'
-import { appRoutes } from './services/routes/index.js'
+    loadDotenv,
+} from '@/configs/index.js'
 import {
     appLimiter,
     specs,
     userlimiter,
     handleNotFound,
-} from './services/index.js'
+    appRoutes,
+} from '@/services/index.js'
 import compression from 'compression'
 
 const app = express()
+
+loadDotenv()
 
 connectDB()
 
@@ -34,10 +37,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static(appRoot.resolve('/src/public')))
-app.use('/api', appRoutes)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 app.get('/swagger.json', serveSwaggerJson)
+
+app.use('/api', appRoutes)
 
 app.use(handleNotFound)
 

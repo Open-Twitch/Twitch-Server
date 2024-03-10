@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 import i18n from 'i18n'
 import bcrypt from 'bcrypt'
 import { type RequestHandler } from 'express'
-import { UserModel, type IUserType, adaptRequest } from '../../index.js'
+import { UserModel, type IUserType, adaptRequest } from '@/services/index.js'
 
 export const loginUser: RequestHandler = async (req, res, next) => {
     try {
