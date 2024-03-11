@@ -3,5 +3,7 @@
     "userRegisteredSuccessfully": "Kullanıcı başarıyla kaydedildi.",
     "invalidCredentials": "Geçersiz kullanıcı adı veya şifre.",
     "loginSuccessful": "Giriş başarılı.",
-    "readSingleChannelNotFound": "Kanal bulunamadı."
+    "readSingleChannelNotFound": "Kanal bulunamadı.",
+    "readAllChannelsNotFound": "Kanal bulunamadı.",
+    "userNotFound": "User not found"
 }

@@ -3,5 +3,7 @@
     "userRegisteredSuccessfully": "تم تسجيل المستخدم بنجاح.",
     "invalidCredentials": "اسم المستخدم أو كلمة المرور غير صالحة.",
     "loginSuccessful": "تم تسجيل الدخول بنجاح.",
-    "readSingleChannelNotFound": "القناة غير موجودة."
+    "readSingleChannelNotFound": "القناة غير موجودة.",
+    "readAllChannelsNotFound": "لم يتم العثور على قنوات.",
+    "userNotFound": "المستخدم غير موجود"
 }

@@ -3,5 +3,7 @@
     "userRegisteredSuccessfully": "User registered successfully.",
     "invalidCredentials": "Invalid username or password.",
     "loginSuccessful": "Login successful.",
-    "readSingleChannelNotFound": "Channel not found."
+    "readSingleChannelNotFound": "Channel not found.",
+    "readAllChannelsNotFound": "No channels found.",
+    "userNotFound": "User not found"
 }

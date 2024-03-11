@@ -3,5 +3,7 @@
     "userRegisteredSuccessfully": "کاربر با موفقیت ثبت شد.",
     "invalidCredentials": "نام کاربری یا رمز عبور نامعتبر است.",
     "loginSuccessful": "ورود موفقیت‌آمیز بود.",
-    "readSingleChannelNotFound": "کانال مورد نظر یافت نشد."
+    "readSingleChannelNotFound": "کانال مورد نظر یافت نشد.",
+    "readAllChannelsNotFound": "هیچ کانالی یافت نشد.",
+    "userNotFound": "کاربر پیدا نشد"
 }

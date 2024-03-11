@@ -3,7 +3,7 @@ import { loginSchema, registerSchema } from '@/services/utils/index.js'
 import { loginUser, registerUser } from '@/services/controllers/index.js'
 import { validateBody } from '@/services/middlewares/index.js'
 
-export const authRouter = Router()
+const authRouter = Router()
 
 const AUTH_BASE = '/auth'
 
