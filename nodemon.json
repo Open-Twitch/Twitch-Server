@@ -1,6 +1,8 @@
 {
     "ignore": ["*.test.js", "dist/**"],
+    "ext": "ts",
+    "Watch": ["src"],
     "execMap": {
-        "ts": "ts-node-esm"
+        "ts": "node --loader ts-node/esm"
     }
 }

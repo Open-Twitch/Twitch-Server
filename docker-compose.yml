@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+    app:
+        container_name: twitch-dev-server
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+            target: development
+        env_file:
+            - src/configs/env/.env
+        ports:
+            - '5000:5000'
+        volumes:
+            - ./src:/usr/src/app/src
+            - ./tsconfig.json:/usr/src/app/tsconfig.json
+        external_links:
+            - mongo
+        environment:
+            - NODE_ENV=development
+        command: npm run dev
+
+    prod-app:
+        container_name: twitch-prod-server
+        restart: always
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: production
+        env_file:
+            - src/configs/env/.env
+        ports:
+            - '5001:5000'
+        volumes:
+            - ./src:/usr/src/app/src
+            - ./tsconfig.json:/usr/src/app/tsconfig.json
+        external_links:
+            - mongo
+        environment:
+            - NODE_ENV=production
+        command: npm run start
+
+    mongo:
+        container_name: mongo
+        image: mongo
+        volumes:
+            - ./data:/data/db
+        ports:
+            - '27017:27017'
