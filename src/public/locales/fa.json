@@ -5,5 +5,9 @@
     "loginSuccessful": "ورود موفقیت‌آمیز بود.",
     "readSingleChannelNotFound": "کانال مورد نظر یافت نشد.",
     "readAllChannelsNotFound": "هیچ کانالی یافت نشد.",
-    "userNotFound": "کاربر پیدا نشد"
+    "userNotFound": "کاربر پیدا نشد",
+    "invalidPassword": "رمز عبور نامعتبر است",
+    "passwordChangedSuccessfully": "رمز عبور با موفقیت تغییر کرد",
+    "alreadyFollowingChannel": "شما از قبل این کانال را دنبال می‌کنید",
+    "followedSeuccessfully": "با موفقیت دنبال شد"
 }

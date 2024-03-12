@@ -5,5 +5,9 @@
     "loginSuccessful": "تم تسجيل الدخول بنجاح.",
     "readSingleChannelNotFound": "القناة غير موجودة.",
     "readAllChannelsNotFound": "لم يتم العثور على قنوات.",
-    "userNotFound": "المستخدم غير موجود"
+    "userNotFound": "المستخدم غير موجود",
+    "invalidPassword": "كلمة مرور غير صالحة",
+    "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح",
+    "alreadyFollowingChannel": "أنت بالفعل تتابع هذه القناة",
+    "followedSeuccessfully": "تمت المتابعة بنجاح"
 }

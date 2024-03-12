@@ -5,5 +5,9 @@
     "loginSuccessful": "Login successful.",
     "readSingleChannelNotFound": "Channel not found.",
     "readAllChannelsNotFound": "No channels found.",
-    "userNotFound": "User not found"
+    "userNotFound": "User not found",
+    "invalidPassword": "Invalid password",
+    "passwordChangedSuccessfully": "Password changed successfully",
+    "alreadyFollowingChannel": "You are already following this channel",
+    "followedSeuccessfully": "Followed successfully"
 }

@@ -5,5 +5,9 @@
     "loginSuccessful": "Giriş başarılı.",
     "readSingleChannelNotFound": "Kanal bulunamadı.",
     "readAllChannelsNotFound": "Kanal bulunamadı.",
-    "userNotFound": "User not found"
+    "userNotFound": "User not found",
+    "invalidPassword": "Geçersiz şifre",
+    "passwordChangedSuccessfully": "Şifre başarıyla değiştirildi",
+    "alreadyFollowingChannel": "Bu kanalı zaten takip ediyorsunuz",
+    "followedSeuccessfully": "Başarıyla takip edildi"
 }
