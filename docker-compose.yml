@@ -1,4 +1,4 @@
-version: '3.8'
+version: '2'
 
 services:
     app:
@@ -19,6 +19,8 @@ services:
             - mongo
         environment:
             - NODE_ENV=development
+            # - PORT=${PORT}
+            # - DB_URI=${DB_URI}
         command: npm run dev
 
     prod-app:
@@ -37,13 +39,15 @@ services:
             - ./tsconfig.json:/usr/src/app/tsconfig.json
         external_links:
             - mongo
+            # - DB_URI=${DB_URI}
         environment:
             - NODE_ENV=production
         command: npm run start
 
     mongo:
         container_name: mongo
-        image: mongo
+        image: mongo:latest
+        restart: always
         volumes:
             - ./data:/data/db
         ports:

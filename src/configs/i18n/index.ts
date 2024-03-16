@@ -15,6 +15,10 @@ export const i18nConfig = (
     next: NextFunction
 ): void => {
     i18n.init(req, res)
-    res.setLocale(req.headers['accept-language'] ?? 'en')
+    const acceptLanguageHeader = req.headers['accept-language']
+    const primaryLanguage = acceptLanguageHeader
+        ? acceptLanguageHeader.split(',')[0]
+        : 'en'
+    i18n.setLocale(primaryLanguage)
     next()
 }
