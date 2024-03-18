@@ -6,8 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-# COPY src/configs/env/.env src/configs/env/.env 
-
 COPY . .
 
 EXPOSE 5000
