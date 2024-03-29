@@ -1,5 +1,5 @@
 import request from 'supertest'
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 import jwt from 'jsonwebtoken'
 import { loadDotenv } from './../../../configs/dotEnv/index'
 import { UserModel } from './../../models/user.model'
@@ -70,6 +70,7 @@ describe('POST /api/follow', () => {
 
     afterAll(async () => {
         await UserModel.findByIdAndDelete(userId)
+        await ChannelModel.findByIdAndDelete(channelId)
         await mongoose.connection.close()
     })
 })
