@@ -1,16 +1,5 @@
 import mongoose from 'mongoose'
 
-// export const connestDB = async (): Promise<void> => {
-//     try {
-//         const db = await mongoose.connect(process.env.DB_URI as string)
-//         // eslint-disable-next-line no-console
-//         console.log(`mongodb connected : ${db.connection.host}`)
-//     } catch (error) {
-//         // eslint-disable-next-line no-console
-//         console.log(error)
-//         process.exit(1)
-//     }
-// }
 export const connectDB = async (): Promise<void> => {
     try {
         const db = await mongoose.connect(process.env.DB_URI as string)

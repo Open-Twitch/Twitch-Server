@@ -7,7 +7,7 @@ import {
     type IUserType,
     type IUserSchema,
     adaptRequest,
-} from '../../index.js'
+} from '@/services/index.js'
 
 export const registerUser: RequestHandler = async (req, res, next) => {
     try {

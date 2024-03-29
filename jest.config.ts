@@ -1,19 +1,18 @@
-import type { Config } from 'jest'
-
-const config: Config = {
-    preset: 'ts-jest',
+export default {
     testEnvironment: 'node',
-    verbose: true,
-    moduleNameMapper: {
-        '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-            'jest-transform-stub',
-        '^@/(.*)$': '<rootDir>/src/$1',
-    },
+    preset: 'ts-jest/presets/default-esm',
     transform: {
-        '^.+\\.ts?$': 'ts-jest',
+        '^.+\\.m?[tj]s?$': ['ts-jest', { useESM: true }],
     },
-    roots: ['<rootDir>/src'],
-    testMatch: ['**/__tests__/**/*.+(ts|js)', '**/?(*.)+(spec|test).+(ts|js)'],
+    moduleNameMapper: {
+        '^(\\.{1,2}/.*)\\.(m)?js$': '$1',
+    },
+    testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(m)?ts$',
+    coverageDirectory: 'coverage',
+    collectCoverageFrom: [
+        'src/**/*.ts',
+        'src/**/*.mts',
+        '!src/**/*.d.ts',
+        '!src/**/*.d.mts',
+    ],
 }
-
-export default config

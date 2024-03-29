@@ -5,11 +5,9 @@ import { UserModel } from '@/services/index.js'
 export const followChannel: RequestHandler = async (req, res, next) => {
     try {
         const { channelId } = req.body
+        const { userId } = req.user
 
-        const user = await UserModel.findOne(
-            { channel: channelId },
-            'followedChannels'
-        )
+        const user = await UserModel.findById(userId, 'followedChannels')
 
         if (!user) {
             return res.status(404).json({ message: i18n.__('userNotFound') })
