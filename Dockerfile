@@ -2,14 +2,14 @@ FROM node:20.11.1 as production
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+EXPOSE 8000
 
-RUN npm install
+RUN npm install && npm cache clean --force
+
+ENV NODE_ENV=production
 
 COPY . .
 
 RUN npm run build
 
-EXPOSE 8000
-
-CMD ["npm", "start"]
+CMD ["node", "dist/index.js"]

@@ -44,11 +44,11 @@ services:
             - NODE_ENV=production
         command: npm run start
 
-    mongo:
-        container_name: mongo
+    mongodb:
+        container_name: mongodb
         image: mongo:latest
         restart: always
         volumes:
             - ./data:/data/db
         ports:
-            - '27017:27017'
+            - '27012:27017'
