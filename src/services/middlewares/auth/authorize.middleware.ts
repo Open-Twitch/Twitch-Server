@@ -1,9 +1,13 @@
 import jwt from 'jsonwebtoken'
 import { type RequestHandler } from 'express'
 
-export const authorize: RequestHandler = (req: any, res, next) => {
+export const authorize: RequestHandler = (req: any, res, next: any) => {
     let token: string =
-        req.body.token || req.query.token || req.header('token') || ''
+        req.body.token ||
+        req.query.token ||
+        req.header('Authorization') ||
+        req.cookies('token') ||
+        ''
 
     if (!token) {
         res.status(403).json({

@@ -1,3 +1,5 @@
 dist/**/*.js"
 dist/*"
 commitlint.config.cjs
+jest.config.ts
+**/*.test.ts

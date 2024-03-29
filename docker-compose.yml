@@ -15,8 +15,12 @@ services:
         volumes:
             - ./src:/usr/src/app/src
             - ./tsconfig.json:/usr/src/app/tsconfig.json
-        depends_on:
-            - mongodb
+        external_links:
+            - mongo
+        environment:
+            - NODE_ENV=development
+            - PORT=5000
+            - DB_URI=${DB_URI}
         command: npm run dev
 
     prod-app:
@@ -33,8 +37,11 @@ services:
         volumes:
             - ./src:/usr/src/app/src
             - ./tsconfig.json:/usr/src/app/tsconfig.json
-        links:
-            - mongodb
+        external_links:
+            - mongo
+            - DB_URI=${DB_URI}
+        environment:
+            - NODE_ENV=production
         command: npm run start
 
     mongodb:
