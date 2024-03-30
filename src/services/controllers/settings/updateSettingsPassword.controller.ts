@@ -16,7 +16,7 @@ export const updateSettingsPassword: RequestHandler = async (
         const userData = await UserModel.findById(userId, 'password')
 
         if (!userData) {
-            return res.status(400).json({ message: I18n.__('userNotFound') })
+            return res.status(404).json({ message: I18n.__('userNotFound') })
         }
 
         const isPasswordCorrect = await bcrypt.compare(

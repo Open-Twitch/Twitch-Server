@@ -11,7 +11,7 @@ import {
 
 const settingsRouter = Router()
 
-const SETTINGS_BASE = '/channel'
+const SETTINGS_BASE = '/settings'
 
 settingsRouter.get(`${SETTINGS_BASE}`, authorize, readChannelSettigns)
 
