@@ -8,15 +8,15 @@ export const updateChannelSettings: RequestHandler = async (req, res, next) => {
 
         const { username, description, title, avatarURL } = req.body
 
-        const userData = await UserModel.findById(userId, 'username')
+        const userData = await UserModel.findById(userId, 'username channel')
 
         if (!userData) {
-            return res.status(400).json({ message: I18n.__('userNotFound') })
+            return res.status(404).json({ message: I18n.__('userNotFound') })
         }
 
         if (!userData.channel) {
             return res
-                .status(400)
+                .status(404)
                 .json({ message: I18n.__('readSingleChannelNotFound') })
         }
 
