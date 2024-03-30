@@ -29,6 +29,6 @@ channelRouter.get(
 
 channelRouter.get(`${CHANNEL_BASE}`, readAllChannels)
 
-channelRouter.get(`${CHANNEL_BASE}`, authorize, readFollowedChannels)
+channelRouter.get(`${CHANNEL_BASE}-follow`, authorize, readFollowedChannels)
 
 export const channelRoutes = channelRouter
