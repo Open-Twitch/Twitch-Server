@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
     authorize,
     readChannelSettigns,
-    // updateChannelSettingsSchema,
+    updateChannelSettingsSchema,
     updateChannelSettings,
     validateBody,
     updateSettingsPassword,
@@ -18,7 +18,7 @@ settingsRouter.get(`${SETTINGS_BASE}`, authorize, readChannelSettigns)
 settingsRouter.put(
     `${SETTINGS_BASE}`,
     authorize,
-    // validateBody(updateChannelSettingsSchema),
+    validateBody(updateChannelSettingsSchema),
     updateChannelSettings
 )
 

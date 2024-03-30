@@ -12,16 +12,16 @@ export const readChannelSettigns: RequestHandler = async (req, res, next) => {
         ).populate('channel')
 
         if (!userData) {
-            return res.status(400).json({ message: I18n.__('userNotFound') })
+            return res.status(404).json({ message: I18n.__('userNotFound') })
         }
 
         if (!userData.channel) {
             return res
-                .status(400)
+                .status(404)
                 .json({ message: I18n.__('readSingleChannelNotFound') })
         }
 
-        return res.status(201).json({
+        return res.status(200).json({
             id: userData.channel._id,
             username: userData?.username,
             title: userData.channel.title,

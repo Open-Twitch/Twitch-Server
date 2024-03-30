@@ -11,7 +11,7 @@ const port = process.env.PORT ?? 5000
 const url = process.env.DB_URI as string
 const secret = process.env.JWT_SECRET as string
 
-describe('PUT /api/settings', () => {
+describe('GET /api/settings', () => {
     let token: string
     let userId: string
     let channelId: string
@@ -20,23 +20,20 @@ describe('PUT /api/settings', () => {
         await mongoose.connect(url)
 
         const user = await UserModel.create({
-            username: 'testSetUser',
-            email: 'testSet@eg.com',
+            username: 'testUser',
+            email: 'testi@example.com',
             password: 'password',
         })
 
         token = jwt.sign({ userId: user._id }, secret, { expiresIn: '8h' })
         userId = user._id
 
-        console.log(token)
-
         const channel = await ChannelModel.create({
+            title: 'Test Channel',
+            description: 'Test channel description',
+            avatarURL: 'test_avatar.jpg',
+            streamKey: 'test_stream_key',
             isActive: true,
-            title: 'Test',
-            description: 'Test description',
-            avatarURL: 'test.jpg',
-            streamKey: 'Test',
-            messages: [],
         })
 
         channelId = channel._id
@@ -45,37 +42,26 @@ describe('PUT /api/settings', () => {
         await user.save()
     })
 
-    it('updates channel settings successfully', async () => {
-        const newSettings = {
-            username: 'newUser',
-            title: 'New Test',
-            description: 'New Test description',
-            avatarURL: 'newTest.jpg',
-        }
-
+    it('returns channel settings successfully', async () => {
         const response = await request(`http://localhost:${port}`)
-            .put('/api/settings')
+            .get('/api/settings')
             .set('Authorization', `Bearer ${token}`)
-            .send(newSettings)
-            .expect(201)
+            .expect(200)
 
-        expect(response.body.title).toBe(newSettings.title)
-        expect(response.body.description).toBe(newSettings.description)
-        expect(response.body.avatarURL).toBe(newSettings.avatarURL)
+        expect(response.body.id).toBe(channelId.toString())
+        expect(response.body.username).toBe('testUser')
+        expect(response.body.title).toBe('Test Channel')
+        expect(response.body.description).toBe('Test channel description')
+        expect(response.body.avatarUrl).toBe('test_avatar.jpg')
+        expect(response.body.streamKey).toBe('test_stream_key')
     })
 
     it('returns 400 if user not found', async () => {
         await UserModel.findByIdAndDelete(userId)
 
         const response = await request(`http://localhost:${port}`)
-            .put('/api/settings')
+            .get('/api/settings')
             .set('Authorization', `Bearer ${token}`)
-            .send({
-                username: 'newUser',
-                title: 'New Test',
-                description: 'New Test description',
-                avatarURL: 'new_Test.jpg',
-            })
             .expect(404)
 
         expect(response.body.message).toBe('User not found')
