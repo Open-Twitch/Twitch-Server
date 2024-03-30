@@ -6,8 +6,8 @@ export const readFollowedChannels: RequestHandler = async (req, res, next) => {
     try {
         const { userId } = req.user
 
-        const user = await UserModel.findOne(
-            { userId },
+        const user = await UserModel.findById(
+            userId,
             'followedChannels'
         ).populate('followedChannels')
 

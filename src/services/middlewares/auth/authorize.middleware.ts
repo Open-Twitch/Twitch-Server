@@ -6,7 +6,7 @@ export const authorize: RequestHandler = (req: any, res, next: any) => {
         req.body.token ||
         req.query.token ||
         req.header('Authorization') ||
-        req.cookies('token') ||
+        req.cookies.token ||
         ''
 
     if (!token) {

@@ -2,6 +2,7 @@ import swaggerUi from 'swagger-ui-express'
 import express from 'express'
 import cors from 'cors'
 import appRoot from 'app-root-path'
+import cookieParser from 'cookie-parser'
 import {
     connectDB,
     devConfigs,
@@ -32,6 +33,7 @@ app.use(i18nConfig)
 app.use(userlimiter)
 app.use(appLimiter)
 app.use(compression())
+app.use(cookieParser())
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
