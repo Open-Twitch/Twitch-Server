@@ -45,7 +45,6 @@ describe('GET /api/channels-follow', () => {
         await user.save()
 
         token = jwt.sign({ userId: user._id }, secret, { expiresIn: '8h' })
-        console.log('🚀 ~ beforeAll ~ token:', token)
         userId = user._id
     })
 

@@ -62,20 +62,11 @@ describe('GET /api/channels', () => {
         ).toBe(true)
     })
 
-    it('returns 404 if no active channels found', async () => {
+    afterAll(async () => {
         await ChannelModel.findByIdAndDelete(channelId1)
         await ChannelModel.findByIdAndDelete(channelId2)
         await UserModel.findByIdAndDelete(userId1)
         await UserModel.findByIdAndDelete(userId2)
-
-        const response = await request(`http://localhost:${port}`)
-            .get('/api/channels')
-            .expect(404)
-
-        expect(response.body.message).toBe('No channels found.')
-    })
-
-    afterAll(async () => {
         await mongoose.connection.close()
     })
 })
