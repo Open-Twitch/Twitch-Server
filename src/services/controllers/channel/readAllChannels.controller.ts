@@ -1,6 +1,7 @@
 import i18n from 'i18n'
 import { type RequestHandler } from 'express'
 import { ChannelModel, UserModel } from '@/services/index.js'
+import axios from 'axios'
 
 export const readAllChannels: RequestHandler = async (_req, res, next) => {
     try {
@@ -22,7 +23,22 @@ export const readAllChannels: RequestHandler = async (_req, res, next) => {
                     'username'
                 )
 
-                const isOnline = false
+                const activeStreams: any = (
+                    await axios.get('http://localhost:8000/api/streams')
+                ).data
+
+                const liveStreams = []
+
+                for (const streamId in activeStreams.live) {
+                    if (
+                        activeStreams.live[streamId].publisher &&
+                        activeStreams.live[streamId].publisher !== null
+                    ) {
+                        liveStreams.push(streamId)
+                    }
+                }
+
+                const isOnline = liveStreams.includes(channel.streamKey)
 
                 return {
                     ...(channel.toObject ? channel.toObject() : channel),

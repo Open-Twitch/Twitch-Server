@@ -28,12 +28,13 @@ const ChannelSchema = new Schema<IChannelSchema>({
     },
     streamKey: {
         type: String,
-        default: uuid(),
+        default: uuid,
     },
     messages: [
         {
             type: Schema.Types.ObjectId,
             ref: 'Message',
+            default: [],
         },
     ],
 })
