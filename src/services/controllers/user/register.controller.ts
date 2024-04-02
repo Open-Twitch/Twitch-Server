@@ -7,6 +7,7 @@ import {
     type IUserType,
     type IUserSchema,
     adaptRequest,
+    ChannelModel,
 } from '@/services/index.js'
 
 export const registerUser: RequestHandler = async (req, res, next) => {
@@ -22,11 +23,15 @@ export const registerUser: RequestHandler = async (req, res, next) => {
 
         const hashedPassword = await bcrypt.hash(password, 10)
 
+        const newChannel = await ChannelModel.create({})
+
         const newUser: IUserSchema = new UserModel({
             username,
             email: email.toLowerCase(),
             password: hashedPassword,
+            channel: newChannel._id,
         })
+
         await newUser.save()
 
         const token = jwt.sign(

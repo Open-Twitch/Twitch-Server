@@ -41,8 +41,8 @@ services:
             - NODE_ENV=production
         command: npm run start
 
-    mongodb:
-        container_name: mongodb
+    mongo:
+        container_name: mongo
         image: mongo:latest
         restart: always
         volumes:
