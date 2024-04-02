@@ -28,8 +28,6 @@ describe('PUT /api/settings', () => {
         token = jwt.sign({ userId: user._id }, secret, { expiresIn: '8h' })
         userId = user._id
 
-        console.log(token)
-
         const channel = await ChannelModel.create({
             isActive: true,
             title: 'Test',
