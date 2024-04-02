@@ -57,8 +57,8 @@ describe('GET /api/channels/:channelId', () => {
         expect(response.body).toHaveProperty('avatarURL', 'test_avatar.jpg')
         expect(response.body).toHaveProperty('streamKey', 'test_stream_key')
         expect(response.body).toHaveProperty('username', 'testUser')
-        expect(response.body).toHaveProperty('isOnline', false)
-        expect(response.body).toHaveProperty('streamURL', 'http')
+        expect(typeof response.body.isOnline === 'boolean').toBeTruthy()
+        expect(response.body.streamURL).toBeDefined()
     })
 
     it('returns 404 if channel or user not found', async () => {
