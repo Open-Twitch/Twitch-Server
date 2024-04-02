@@ -1,18 +1,11 @@
 FROM node:20.11.1 as development
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-
-RUN npm install
-
-COPY . .
-
 EXPOSE 5000
 
 WORKDIR /usr/src/app
 
-COPY . . 
+COPY . .
+COPY src/configs/env/.env src/configs/env/.env
 
 RUN npm install && npm cache clean --force
 

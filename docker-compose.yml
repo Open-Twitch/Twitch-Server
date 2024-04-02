@@ -1,17 +1,17 @@
-version: '2'
+version: '3.8'
 
 services:
     app:
         container_name: twitch-dev-server
+        env_file:
+            - .env
         restart: always
         build:
             context: .
             dockerfile: Dockerfile.dev
             target: development
-        env_file:
-            - src/configs/env/.env
         ports:
-            - '5000:5000'
+            - ${PORT}:${PORT}
         volumes:
             - ./src:/usr/src/app/src
             - ./tsconfig.json:/usr/src/app/tsconfig.json
@@ -19,8 +19,6 @@ services:
             - mongo
         environment:
             - NODE_ENV=development
-            - PORT=5000
-            - DB_URI=${DB_URI}
         command: npm run dev
 
     prod-app:
@@ -31,15 +29,14 @@ services:
             dockerfile: Dockerfile
             target: production
         env_file:
-            - src/configs/env/.env
+            - .env
         ports:
-            - '5001:5000'
+            - ${PORT}:${PORT}
         volumes:
             - ./src:/usr/src/app/src
             - ./tsconfig.json:/usr/src/app/tsconfig.json
         external_links:
             - mongo
-            - DB_URI=${DB_URI}
         environment:
             - NODE_ENV=production
         command: npm run start
@@ -52,3 +49,14 @@ services:
             - ./data:/data/db
         ports:
             - '27012:27017'
+
+    nginx:
+        image: reverse-proxy
+        restart: always
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile.nginx
+        container_name: ${NGINX_HOST}
+        env_file: .env
+        ports:
+            - ${NGINX_PORT}:${NGINX_PORT}
