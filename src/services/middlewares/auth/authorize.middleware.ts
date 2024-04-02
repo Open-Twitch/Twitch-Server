@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import { type RequestHandler } from 'express'
 
-export const authorize: RequestHandler = (req: any, res, next: any) => {
+export const authorize: RequestHandler = (req, res, next) => {
     let token: string =
         req.body.token ||
         req.query.token ||
